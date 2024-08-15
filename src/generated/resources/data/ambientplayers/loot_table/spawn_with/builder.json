@@ -1,0 +1,17 @@
+{
+  "type": "ambientplayers:entity_spawn_with",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": "ambientplayers:spawn_with/common/builder_offer"
+        }
+      ],
+      "name": "mainhand",
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ambientplayers:spawn_with/builder"
+}

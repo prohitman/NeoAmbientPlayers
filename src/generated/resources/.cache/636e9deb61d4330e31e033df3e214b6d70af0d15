@@ -1,0 +1,9 @@
+// 1.21	2024-08-15T14:12:47.4206197	Tags for minecraft:entity_type mod id ambientplayers
+ecea5b77a095ecccd5433903cfd96bd0472596d8 data/ambientplayers/tags/entity_type/ambient_players.json
+edb41f570f778e97f173e6b13201356c8859da1e data/ambientplayers/tags/entity_type/ambient_players/aggressive.json
+43dd562148cad77b6547393dd91c6768b2ec42f6 data/ambientplayers/tags/entity_type/ambient_players/mercenary.json
+bae8a1ad2e54080060b636fa936902233100238b data/ambientplayers/tags/entity_type/ambient_players/passive.json
+91e6fe0cd13127b0292fc0c5361d347d1c808f57 data/ambientplayers/tags/entity_type/ambient_players/ranger.json
+f0e58a32ca36fad301864241df328f40f13d27fc data/ambientplayers/tags/entity_type/ambient_players/unique.json
+a9447652fae211007191ce2acbea72b2eaca4e91 data/ambientplayers/tags/entity_type/ambient_players/wanderer.json
+b47828c4440a5169302f46dea88d36e3e789f0ba data/ambientplayers/tags/entity_type/has_attack_movement_buff.json

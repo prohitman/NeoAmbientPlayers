@@ -1,0 +1,32 @@
+{
+  "type": "ambientplayers:entity_spawn_with",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "ambientplayers:any_item",
+          "filters": [
+            {
+              "predicates": {
+                "ambientplayers:any": {
+                  "predicates": [
+                    {
+                      "items": "#c:melee_weapons"
+                    },
+                    {
+                      "items": "#c:conventional_tools"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "name": "base",
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ambientplayers:spawn_with/common/random_melee_weapon_or_tool"
+}

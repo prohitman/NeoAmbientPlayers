@@ -1,0 +1,10 @@
+// 1.21	2024-08-15T14:12:47.4236202	Tags for minecraft:item mod id ambientplayers
+0cfb0fc5aa8103ca9ae0e4f25b17da6ea4229790 data/ambientplayers/tags/item/builder_blacklist.json
+b440c2875959955c04bfbaa9664d2e09d363e6a7 data/ambientplayers/tags/item/builder_trades.json
+ac5db3108815cdeb903745938295d3543bbd6196 data/ambientplayers/tags/item/should_not_spawn_with.json
+a72908ecc8169c144688afc2325829cc9e8aa706 data/ambientplayers/tags/item/unobtainable.json
+1e7d0f65bb26d7e0cdd5095213a32ad5320d8d7b data/c/tags/item/conventional_tools.json
+32c5b520e3ec3ce7ca6543b734f11428e4f12978 data/c/tags/item/melee_weapons.json
+de75671f136ad29ecb1fee30fc8326bbb0cce33f data/c/tags/item/ranged_weapons.json
+13d3532f640db14e79bc743413da8c80782305e8 data/c/tags/item/shulker_boxes.json
+e8e3e5a1a084f179adade5399d0d0134e6a84b02 data/c/tags/item/weapons.json

@@ -1,0 +1,32 @@
+{
+  "type": "ambientplayers:entity_spawn_with",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "ambientplayers:any_item",
+          "filters": [
+            {
+              "predicates": {
+                "ambientplayers:block_item": {}
+              }
+            },
+            {
+              "predicates": {
+                "ambientplayers:not": {
+                  "predicate": {
+                    "items": "#ambientplayers:builder_blacklist"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "name": "base",
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ambientplayers:spawn_with/common/builder_offer"
+}

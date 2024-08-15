@@ -1,0 +1,18 @@
+{
+  "entity.ambientplayers.aggressive_mercenary": "Aggressive Mercenary",
+  "entity.ambientplayers.aggressive_ranger": "Aggressive Ranger",
+  "entity.ambientplayers.aggressive_wanderer": "Aggressive Wanderer",
+  "entity.ambientplayers.builder": "Builder",
+  "entity.ambientplayers.miscreant": "Miscreant",
+  "entity.ambientplayers.passive_mercenary": "Passive Mercenary",
+  "entity.ambientplayers.passive_ranger": "Passive Ranger",
+  "entity.ambientplayers.passive_wanderer": "Passive Wanderer",
+  "item.ambientplayers.aggressive_mercenary_spawn_egg": "Aggressive Mercenary Spawn Egg",
+  "item.ambientplayers.aggressive_ranger_spawn_egg": "Aggressive Ranger Spawn Egg",
+  "item.ambientplayers.aggressive_wanderer_spawn_egg": "Aggressive Wanderer Spawn Egg",
+  "item.ambientplayers.builder_spawn_egg": "Builder Spawn Egg",
+  "item.ambientplayers.miscreant_spawn_egg": "Miscreant Spawn Egg",
+  "item.ambientplayers.passive_mercenary_spawn_egg": "Passive Mercenary Spawn Egg",
+  "item.ambientplayers.passive_ranger_spawn_egg": "Passive Ranger Spawn Egg",
+  "item.ambientplayers.passive_wanderer_spawn_egg": "Passive Wanderer Spawn Egg"
+}

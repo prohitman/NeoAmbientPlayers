@@ -1,0 +1,25 @@
+{
+  "type": "ambientplayers:entity_spawn_with",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "ambientplayers:any_item",
+          "filters": [
+            {
+              "predicates": {
+                "ambientplayers:armor_item": {
+                  "armor_type": "chestplate"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "name": "base",
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ambientplayers:spawn_with/common/random_chestplate"
+}

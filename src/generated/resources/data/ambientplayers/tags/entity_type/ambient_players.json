@@ -1,0 +1,7 @@
+{
+  "values": [
+    "#ambientplayers:ambient_players/passive",
+    "#ambientplayers:ambient_players/aggressive",
+    "#ambientplayers:ambient_players/unique"
+  ]
+}

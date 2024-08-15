@@ -1,0 +1,7 @@
+{
+  "values": [
+    "#ambientplayers:should_not_spawn_with",
+    "minecraft:sniffer_egg",
+    "minecraft:turtle_egg"
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "type": "ambientplayers:entity_spawn_with",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "ambientplayers:any_item",
+          "filters": [
+            {
+              "predicates": {
+                "ambientplayers:not": {
+                  "predicate": {
+                    "items": "#c:weapons"
+                  }
+                }
+              }
+            },
+            {
+              "predicates": {
+                "ambientplayers:not": {
+                  "predicate": {
+                    "items": "#c:conventional_tools"
+                  }
+                }
+              }
+            },
+            {
+              "predicates": {
+                "ambientplayers:not": {
+                  "predicate": {
+                    "items": "#ambientplayers:should_not_spawn_with"
+                  }
+                }
+              }
+            },
+            {
+              "predicates": {
+                "ambientplayers:not": {
+                  "predicate": {
+                    "predicates": {
+                      "ambientplayers:block_item": {}
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "weight": 670
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "ambientplayers:spawn_with/common/item_with_effects"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "ambientplayers:spawn_with/common/firework"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "ambientplayers:spawn_with/common/map"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "ambientplayers:set_random_firework_star"
+            }
+          ],
+          "name": "minecraft:firework_star"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:enchant_randomly",
+              "options": "#minecraft:on_random_loot"
+            }
+          ],
+          "name": "minecraft:book"
+        }
+      ],
+      "name": "base",
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ambientplayers:spawn_with/common/random_non_weapon_non_tool"
+}

@@ -1,0 +1,171 @@
+{
+  "type": "ambientplayers:entity_spawn_with",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "decoration": "minecraft:red_x",
+              "function": "minecraft:exploration_map",
+              "search_radius": 10
+            }
+          ],
+          "name": "minecraft:map"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "destination": "minecraft:on_woodland_explorer_maps",
+              "function": "minecraft:exploration_map",
+              "search_radius": 10
+            }
+          ],
+          "name": "minecraft:map"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "destination": "minecraft:on_ocean_explorer_maps",
+              "function": "minecraft:exploration_map",
+              "search_radius": 10
+            }
+          ],
+          "name": "minecraft:map"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "decoration": "minecraft:target_x",
+              "destination": "minecraft:ruined_portal",
+              "function": "minecraft:exploration_map",
+              "search_radius": 10
+            }
+          ],
+          "name": "minecraft:map"
+        },
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "chance": 0.166,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "functions": [
+                {
+                  "decoration": "minecraft:banner_blue",
+                  "destination": "minecraft:village",
+                  "function": "minecraft:exploration_map",
+                  "search_radius": 10
+                }
+              ],
+              "name": "minecraft:map"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "chance": 0.166,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "functions": [
+                {
+                  "decoration": "minecraft:banner_brown",
+                  "destination": "minecraft:village",
+                  "function": "minecraft:exploration_map",
+                  "search_radius": 10
+                }
+              ],
+              "name": "minecraft:map"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "chance": 0.166,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "functions": [
+                {
+                  "decoration": "minecraft:banner_green",
+                  "destination": "minecraft:village",
+                  "function": "minecraft:exploration_map",
+                  "search_radius": 10
+                }
+              ],
+              "name": "minecraft:map"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "chance": 0.166,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "functions": [
+                {
+                  "decoration": "minecraft:banner_orange",
+                  "destination": "minecraft:village",
+                  "function": "minecraft:exploration_map",
+                  "search_radius": 10
+                }
+              ],
+              "name": "minecraft:map"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "chance": 0.166,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "functions": [
+                {
+                  "decoration": "minecraft:banner_lime",
+                  "destination": "minecraft:village",
+                  "function": "minecraft:exploration_map",
+                  "search_radius": 10
+                }
+              ],
+              "name": "minecraft:map"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "chance": 0.166,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "functions": [
+                {
+                  "decoration": "minecraft:banner_pink",
+                  "destination": "minecraft:village",
+                  "function": "minecraft:exploration_map",
+                  "search_radius": 10
+                }
+              ],
+              "name": "minecraft:map"
+            }
+          ]
+        }
+      ],
+      "name": "base",
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ambientplayers:spawn_with/common/map"
+}

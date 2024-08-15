@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.prohitman.ambientplayers.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "refmap": "ambientplayers.refmap.json",
+  "mixins": [
+    "LivingEntityMixin",
+    "LootContextParamSetsAccessor",
+    "StructureTemplatePoolAccessor"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
