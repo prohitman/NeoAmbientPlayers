@@ -1,4 +1,4 @@
-package com.prohitman.ambientplayers.loot.rpredicates;
+package com.prohitman.ambientplayers.loot.predicates;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;

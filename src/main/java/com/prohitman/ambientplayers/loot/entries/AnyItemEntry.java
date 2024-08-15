@@ -1,38 +1,25 @@
 package com.prohitman.ambientplayers.loot.entries;
 
-import com.google.common.collect.ImmutableList;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonSerializationContext;
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.prohitman.ambientplayers.registry.LootPoolEntryTypeRegistry;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.Util;
-import net.minecraft.advancements.critereon.DamagePredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
-import net.minecraft.advancements.critereon.ItemSubPredicate;
-import net.minecraft.advancements.critereon.ItemSubPredicates;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.GsonHelper;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootContext;
-import net.minecraft.world.level.storage.loot.entries.*;
+import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
+import net.minecraft.world.level.storage.loot.entries.LootPoolEntryType;
+import net.minecraft.world.level.storage.loot.entries.LootPoolSingletonContainer;
 import net.minecraft.world.level.storage.loot.functions.LootItemFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.function.Consumer;
 
 public class AnyItemEntry extends LootPoolSingletonContainer {
@@ -94,31 +81,4 @@ public class AnyItemEntry extends LootPoolSingletonContainer {
             return new AnyItemEntry( getFilters(), weight, quality, getConditions(), getFunctions());
         }
     }
-
-    /*public static class Serializer extends LootPoolSingletonContainer.Serializer<AnyItemEntry> {
-
-        @Override
-        protected AnyItemEntry deserialize(JsonObject pObject, JsonDeserializationContext pContext, int pWeight, int pQuality, LootItemCondition[] pConditions, LootItemFunction[] pFunctions) {
-            ImmutableList.Builder<ItemPredicate> filters = new ImmutableList.Builder<>();
-            if (pObject.has("filters")) {
-                JsonArray filtersJson = GsonHelper.getAsJsonArray(pObject, "filters");
-                for (int i = 0; i < filtersJson.size(); i++) {
-                    filters.add(ItemPredicate.fromJson(filtersJson.get(i)));
-                }
-            }
-            return new AnyItemEntry(pWeight, pQuality, pConditions, pFunctions, filters.build());
-        }
-
-        @Override
-        public void serializeCustom(JsonObject pObject, AnyItemEntry pContext, JsonSerializationContext pConditions) {
-            super.serializeCustom(pObject, pContext, pConditions);
-            if (!pContext.filters.isEmpty()) {
-                JsonArray array = new JsonArray();
-                for (ItemPredicate predicate : pContext.filters) {
-                    array.add(predicate.serializeToJson());
-                }
-                pObject.add("filters", array);
-            }
-        }
-    }*/
 }

@@ -19,23 +19,14 @@ import net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer;
 import net.minecraft.client.resources.DefaultPlayerSkin;
 import net.minecraft.client.resources.PlayerSkin;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.FileToIdConverter;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.packs.resources.PreparableReloadListener;
-import net.minecraft.server.packs.resources.Resource;
-import net.minecraft.server.packs.resources.ResourceManager;
-import net.minecraft.server.packs.resources.ResourceManagerReloadListener;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.item.CrossbowItem;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import net.neoforged.neoforge.common.Tags;
-import net.neoforged.neoforge.event.level.NoteBlockEvent;
 
 import java.util.List;
-import java.util.Map;
-import java.util.function.Consumer;
 
 public class AmbientPlayerRenderer<T extends PlayerMob> extends HumanoidMobRenderer<T, PlayerModel<T>> {
     private static final ResourceLocation BUILDER_TEXTURE = AmbientPlayers.id("textures/entity/ambient_player/builder.png");

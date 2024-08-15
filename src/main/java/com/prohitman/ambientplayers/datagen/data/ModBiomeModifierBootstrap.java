@@ -3,7 +3,6 @@ package com.prohitman.ambientplayers.datagen.data;
 import com.prohitman.ambientplayers.AmbientPlayers;
 import com.prohitman.ambientplayers.registry.EntityTypeRegistry;
 import net.minecraft.core.HolderGetter;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;

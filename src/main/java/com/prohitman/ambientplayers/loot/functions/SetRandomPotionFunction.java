@@ -1,20 +1,14 @@
 package com.prohitman.ambientplayers.loot.functions;
 
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonObject;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.prohitman.ambientplayers.registry.LootItemFunctionTypeRegistry;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.world.entity.projectile.Arrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.alchemy.Potion;
-import net.minecraft.world.item.alchemy.PotionBrewing;
 import net.minecraft.world.item.alchemy.PotionContents;
-import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.storage.loot.LootContext;
-import net.minecraft.world.level.storage.loot.functions.ApplyExplosionDecay;
 import net.minecraft.world.level.storage.loot.functions.LootItemConditionalFunction;
 import net.minecraft.world.level.storage.loot.functions.LootItemFunction;
 import net.minecraft.world.level.storage.loot.functions.LootItemFunctionType;
@@ -36,11 +30,7 @@ public class SetRandomPotionFunction extends LootItemConditionalFunction {
     @Override
     protected @NotNull ItemStack run(@NotNull ItemStack pStack, LootContext pContext) {
         Optional<Holder.Reference<Potion>> potionOptional;
-        System.out.println("i HAVE BEEN SUMMONED before potion");
         potionOptional = BuiltInRegistries.POTION.getRandom(pContext.getRandom());
-
-        //while ((potionOptional = BuiltInRegistries.POTION.getRandom(pContext.getRandom())).isPresent() /*&& potionOptional.get().is(PotionContents.EMPTY)*/);
-        System.out.println("i HAVE BEEN SUMMONED after potion");
         return potionOptional.map(potion -> PotionContents.createItemStack(pStack.getItem(), potion)).get();
     }
 
@@ -64,13 +54,4 @@ public class SetRandomPotionFunction extends LootItemConditionalFunction {
             return new SetRandomPotionFunction(getConditions());
         }
     }
-
-/*    public static final class Serializer extends LootItemConditionalFunction.Builder<SetRandomPotionFunction> {
-        public static final Serializer INSTANCE = new Serializer();
-
-        @Override
-        public SetRandomPotionFunction deserialize(JsonObject pObject, JsonDeserializationContext pDeserializationContext, LootItemCondition[] pConditions) {
-            return new SetRandomPotionFunction(pConditions);
-        }
-    }*/
 }

@@ -6,7 +6,6 @@
   "refmap": "ambientplayers.refmap.json",
   "mixins": [
     "LivingEntityMixin",
-    "LootContextParamSetsAccessor",
     "StructureTemplatePoolAccessor"
   ],
   "client": [

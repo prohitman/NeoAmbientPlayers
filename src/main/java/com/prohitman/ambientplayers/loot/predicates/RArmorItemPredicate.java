@@ -1,14 +1,10 @@
-package com.prohitman.ambientplayers.loot.rpredicates;
+package com.prohitman.ambientplayers.loot.predicates;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.advancements.critereon.DamagePredicate;
 import net.minecraft.advancements.critereon.ItemSubPredicate;
-import net.minecraft.advancements.critereon.ItemSubPredicates;
-import net.minecraft.util.ExtraCodecs;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ItemStack;
-import net.neoforged.neoforge.common.util.NeoForgeExtraCodecs;
 
 import java.util.Optional;
 

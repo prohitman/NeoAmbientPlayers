@@ -4,7 +4,6 @@ import com.prohitman.ambientplayers.entity.ai.behaviors.SBLDoorInteractionBehavi
 import com.prohitman.ambientplayers.tag.ModItemTags;
 import com.prohitman.ambientplayers.util.LootUtil;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;

@@ -1,7 +1,5 @@
 package com.prohitman.ambientplayers.loot.functions;
 
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonObject;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.prohitman.ambientplayers.registry.LootItemFunctionTypeRegistry;
@@ -9,11 +7,8 @@ import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntList;
 import net.minecraft.Util;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.FireworkRocketItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.component.FireworkExplosion;
@@ -23,7 +18,6 @@ import net.minecraft.world.level.storage.loot.functions.LootItemConditionalFunct
 import net.minecraft.world.level.storage.loot.functions.LootItemFunction;
 import net.minecraft.world.level.storage.loot.functions.LootItemFunctionType;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.neoforged.neoforge.registries.DeferredRegister;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -41,7 +35,6 @@ public class SetRandomFireworkStarFunction extends LootItemConditionalFunction {
     protected @NotNull ItemStack run(ItemStack pStack, LootContext pContext) {
         if (pStack.is(Items.FIREWORK_STAR)) {
             pStack.set(DataComponents.FIREWORK_EXPLOSION, generateExplosion(pContext.getRandom()));
-            System.out.println("i HAVE BEEN SUMMONED");
         } else if (pStack.is(Items.FIREWORK_ROCKET)) {
             RandomSource random = pContext.getRandom();
             int numExplosions = random.nextInt(1, 4);
@@ -53,7 +46,6 @@ public class SetRandomFireworkStarFunction extends LootItemConditionalFunction {
 
             Fireworks fireworks = new Fireworks(Util.getRandom(durations, random), fireworkExplosions);
             pStack.set(DataComponents.FIREWORKS, fireworks);
-            System.out.println("i HAVE BEEN SUMMONED as well");
         }
 
         return pStack;
@@ -73,13 +65,6 @@ public class SetRandomFireworkStarFunction extends LootItemConditionalFunction {
         FireworkExplosion.Shape shape = Util.getRandom(FireworkExplosion.Shape.values(), random);
         boolean hasTrail = random.nextBoolean();
         boolean hasFlicker = random.nextBoolean();
-/*        CompoundTag tag = new CompoundTag();
-        tag.putByte("Type", (byte) shape.getId());
-        tag.putString("forge:shape_type", shape.name());
-        tag.putIntArray("Colors", colors.stream().mapToInt(DyeColor::getFireworkColor).toArray());
-        tag.putIntArray("FadeColors", fadeColors.stream().mapToInt(DyeColor::getFireworkColor).toArray());
-        tag.putBoolean("Trails", hasTrail);
-        tag.putBoolean("Flicker", hasFlicker);*/
 
         return new FireworkExplosion(shape, colors, fadeColors, hasTrail, hasFlicker);
     }
@@ -105,13 +90,4 @@ public class SetRandomFireworkStarFunction extends LootItemConditionalFunction {
             return new SetRandomFireworkStarFunction(getConditions());
         }
     }
-
-/*    public static final class Serializer extends LootItemConditionalFunction.Serializer<SetRandomFireworkStarFunction> {
-        public static final Serializer INSTANCE = new Serializer();
-
-        @Override
-        public SetRandomFireworkStarFunction deserialize(JsonObject pObject, JsonDeserializationContext pDeserializationContext, LootItemCondition[] pConditions) {
-            return new SetRandomFireworkStarFunction(pConditions);
-        }
-    }*/
 }

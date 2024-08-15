@@ -12,7 +12,7 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 
 public class AmbientPlayersClient {
-    static void init(IEventBus forgeBus, IEventBus modBus) {
+    static void init(IEventBus modBus) {
         modBus.addListener(AmbientPlayersClient::addRenderers);
         modBus.addListener(AmbientPlayersClient::addToTabs);
     }

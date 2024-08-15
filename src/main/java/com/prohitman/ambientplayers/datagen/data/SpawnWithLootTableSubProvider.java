@@ -6,10 +6,10 @@ import com.prohitman.ambientplayers.loot.ModLootContextParamSets;
 import com.prohitman.ambientplayers.loot.entries.AnyItemEntry;
 import com.prohitman.ambientplayers.loot.functions.SetRandomFireworkStarFunction;
 import com.prohitman.ambientplayers.loot.functions.SetRandomPotionFunction;
-import com.prohitman.ambientplayers.loot.rpredicates.RAnyPredicate;
-import com.prohitman.ambientplayers.loot.rpredicates.RArmorItemPredicate;
-import com.prohitman.ambientplayers.loot.rpredicates.RBlockItemPredicate;
-import com.prohitman.ambientplayers.loot.rpredicates.RNotPredicate;
+import com.prohitman.ambientplayers.loot.predicates.RAnyPredicate;
+import com.prohitman.ambientplayers.loot.predicates.RArmorItemPredicate;
+import com.prohitman.ambientplayers.loot.predicates.RBlockItemPredicate;
+import com.prohitman.ambientplayers.loot.predicates.RNotPredicate;
 import com.prohitman.ambientplayers.tag.ModItemTags;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.core.Holder;
@@ -18,7 +18,6 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.LootTableSubProvider;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.StructureTags;
@@ -27,7 +26,6 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.component.FireworkExplosion;
 import net.minecraft.world.item.component.Fireworks;
-import net.minecraft.world.level.saveddata.maps.MapDecoration;
 import net.minecraft.world.level.saveddata.maps.MapDecorationType;
 import net.minecraft.world.level.saveddata.maps.MapDecorationTypes;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -200,7 +198,6 @@ public class SpawnWithLootTableSubProvider implements LootTableSubProvider {
                 LootTable.lootTable().setParamSet(ModLootContextParamSets.SPAWN_WITH).withPool(LootPool.lootPool().name("base")
                         .add(AnyItemEntry.builder()
                                 .filter(ItemPredicate.Builder.item().withSubPredicate(ModItemSubPredicates.ARMOR_ITEM_PREDICATE.get(), RArmorItemPredicate.ofType(ArmorItem.Type.HELMET)).build())
-                        //        .filter(ArmorItemPredicate.ofType(ArmorItem.Type.HELMET))
                         )
                 )
         );
@@ -209,7 +206,6 @@ public class SpawnWithLootTableSubProvider implements LootTableSubProvider {
                 LootTable.lootTable().setParamSet(ModLootContextParamSets.SPAWN_WITH).withPool(LootPool.lootPool().name("base")
                         .add(AnyItemEntry.builder()
                                 .filter(ItemPredicate.Builder.item().withSubPredicate(ModItemSubPredicates.ARMOR_ITEM_PREDICATE.get(), RArmorItemPredicate.ofType(ArmorItem.Type.CHESTPLATE)).build())
-                                //.filter(ArmorItemPredicate.ofType(ArmorItem.Type.CHESTPLATE))
                         )
                 )
         );
@@ -218,7 +214,6 @@ public class SpawnWithLootTableSubProvider implements LootTableSubProvider {
                 LootTable.lootTable().setParamSet(ModLootContextParamSets.SPAWN_WITH).withPool(LootPool.lootPool().name("base")
                         .add(AnyItemEntry.builder()
                                 .filter(ItemPredicate.Builder.item().withSubPredicate(ModItemSubPredicates.ARMOR_ITEM_PREDICATE.get(), RArmorItemPredicate.ofType(ArmorItem.Type.LEGGINGS)).build())
-                                //.filter(ArmorItemPredicate.ofType(ArmorItem.Type.LEGGINGS))
                         )
                 )
         );
@@ -227,8 +222,6 @@ public class SpawnWithLootTableSubProvider implements LootTableSubProvider {
                 LootTable.lootTable().setParamSet(ModLootContextParamSets.SPAWN_WITH).withPool(LootPool.lootPool().name("base")
                         .add(AnyItemEntry.builder()
                                 .filter(ItemPredicate.Builder.item().withSubPredicate(ModItemSubPredicates.ARMOR_ITEM_PREDICATE.get(), RArmorItemPredicate.ofType(ArmorItem.Type.BOOTS)).build())
-
-                                //.filter(ArmorItemPredicate.ofType(ArmorItem.Type.BOOTS))
                         )
                 )
         );
@@ -239,12 +232,7 @@ public class SpawnWithLootTableSubProvider implements LootTableSubProvider {
                                 .filter(ItemPredicate.Builder.item().withSubPredicate(ModItemSubPredicates.NOT_PREDICATE.get(), RNotPredicate.not(ItemPredicate.Builder.item().of(ModItemTags.C_WEAPONS).build())).build())
                                 .filter(ItemPredicate.Builder.item().withSubPredicate(ModItemSubPredicates.NOT_PREDICATE.get(), RNotPredicate.not(ItemPredicate.Builder.item().of(ModItemTags.C_CONVENTIONAL_TOOLS).build())).build())
                                 .filter(ItemPredicate.Builder.item().withSubPredicate(ModItemSubPredicates.NOT_PREDICATE.get(), RNotPredicate.not(ItemPredicate.Builder.item().of(ModItemTags.SHOULD_NOT_SPAWN_WITH).build())).build())
-
-                                //.filter(NotPredicate.not(ItemPredicate.Builder.item().of(ModItemTags.C_CONVENTIONAL_TOOLS).build()))
-                                //.filter(NotPredicate.not(ItemPredicate.Builder.item().of(ModItemTags.SHOULD_NOT_SPAWN_WITH).build()))
                                 .filter(ItemPredicate.Builder.item().withSubPredicate(ModItemSubPredicates.NOT_PREDICATE.get(), RNotPredicate.not(ItemPredicate.Builder.item().withSubPredicate(ModItemSubPredicates.BLOCK_ITEM_PREDICATE.get(), RBlockItemPredicate.getInstance()).build())).build())
-
-                                //.filter(NotPredicate.not(RBlockItemPredicate.getInstance()))
                                 .setWeight(BuiltInRegistries.ITEM.size()/2)
                         )
                         .add(NestedLootTable.lootTableReference(ResourceKey.create(Registries.LOOT_TABLE, ITEM_WITH_EFFECTS)).setWeight(1))
@@ -266,10 +254,6 @@ public class SpawnWithLootTableSubProvider implements LootTableSubProvider {
                         .add(AnyItemEntry.builder()
                                 .filter(ItemPredicate.Builder.item().withSubPredicate(ModItemSubPredicates.ANY_PREDICATE.get(), RAnyPredicate.any(ItemPredicate.Builder.item().of(ModItemTags.C_MELEE_WEAPONS).build(),
                                                 ItemPredicate.Builder.item().of(ModItemTags.C_CONVENTIONAL_TOOLS).build())).build())
-/*                                .filter(AnyPredicate.any(
-                                        ItemPredicate.Builder.item().of(ModItemTags.C_MELEE_WEAPONS).build(),
-                                        ItemPredicate.Builder.item().of(ModItemTags.C_CONVENTIONAL_TOOLS).build()
-                                ))*/
                         )
                 )
         );
@@ -286,10 +270,7 @@ public class SpawnWithLootTableSubProvider implements LootTableSubProvider {
                 LootTable.lootTable().setParamSet(ModLootContextParamSets.SPAWN_WITH).withPool(LootPool.lootPool().name("base")
                         .add(AnyItemEntry.builder()
                                 .filter(ItemPredicate.Builder.item().withSubPredicate(ModItemSubPredicates.BLOCK_ITEM_PREDICATE.get(), RBlockItemPredicate.getInstance()).build())
-                                //.filter(RBlockItemPredicate.MAP_INSTANCE)
                                 .filter(ItemPredicate.Builder.item().withSubPredicate(ModItemSubPredicates.NOT_PREDICATE.get(), RNotPredicate.not(ItemPredicate.Builder.item().of(ModItemTags.BUILDER_BLACKLIST).build())).build())
-
-                                //.filter(NotPredicate.not(ItemPredicate.Builder.item().of(ModItemTags.BUILDER_BLACKLIST).build()))
                         )
                 )
         );

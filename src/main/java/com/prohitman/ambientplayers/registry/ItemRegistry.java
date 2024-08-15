@@ -1,10 +1,8 @@
 package com.prohitman.ambientplayers.registry;
 
 import com.prohitman.ambientplayers.AmbientPlayers;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
-import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 

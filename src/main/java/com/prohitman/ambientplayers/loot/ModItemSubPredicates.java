@@ -1,15 +1,12 @@
 package com.prohitman.ambientplayers.loot;
 
 import com.prohitman.ambientplayers.AmbientPlayers;
-import com.prohitman.ambientplayers.loot.rpredicates.RAnyPredicate;
-import com.prohitman.ambientplayers.loot.rpredicates.RArmorItemPredicate;
-import com.prohitman.ambientplayers.loot.rpredicates.RBlockItemPredicate;
-import com.prohitman.ambientplayers.loot.rpredicates.RNotPredicate;
-import net.minecraft.advancements.critereon.ItemPredicate;
+import com.prohitman.ambientplayers.loot.predicates.RAnyPredicate;
+import com.prohitman.ambientplayers.loot.predicates.RArmorItemPredicate;
+import com.prohitman.ambientplayers.loot.predicates.RBlockItemPredicate;
+import com.prohitman.ambientplayers.loot.predicates.RNotPredicate;
 import net.minecraft.advancements.critereon.ItemSubPredicate;
-import net.minecraft.advancements.critereon.ItemSubPredicates;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.world.level.storage.loot.entries.LootPoolEntryType;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 

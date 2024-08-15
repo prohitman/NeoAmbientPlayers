@@ -1,7 +1,6 @@
 package com.prohitman.ambientplayers;
 
 import com.mojang.datafixers.util.Pair;
-import com.mojang.serialization.JsonOps;
 import com.prohitman.ambientplayers.entity.AggressivePlayerMob;
 import com.prohitman.ambientplayers.entity.PlayerMob;
 import com.prohitman.ambientplayers.loot.ModItemSubPredicates;
@@ -9,14 +8,12 @@ import com.prohitman.ambientplayers.loot.ModLootContextParamSets;
 import com.prohitman.ambientplayers.mixin.StructureTemplatePoolAccessor;
 import com.prohitman.ambientplayers.registry.*;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
-import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.SpawnPlacementTypes;
-import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -57,7 +54,6 @@ public class AmbientPlayers {
         LootItemFunctionTypeRegistry.REGISTER.register(modEventBus);
         ModItemSubPredicates.REGISTER.register(modEventBus);
 
-        registerItemPredicates();
         ModLootContextParamSets.bootstrap();
 
         modEventBus.addListener(this::addDefaultAttributes);
@@ -66,7 +62,7 @@ public class AmbientPlayers {
         forgeBus.addListener(this::addStructures);
 
         if (FMLLoader.getDist().isClient()) {
-            AmbientPlayersClient.init(forgeBus, modEventBus);
+            AmbientPlayersClient.init(modEventBus);
         }
 
         modContainer.registerConfig(ModConfig.Type.SERVER, Config.SERVER_SPEC);
@@ -138,28 +134,5 @@ public class AmbientPlayers {
         List<Pair<StructurePoolElement, Integer>> rawTemplates = new ObjectArrayList<>(accessor.getRawTemplates());
         rawTemplates.add(Pair.of(poolElement, weight));
         accessor.setRawTemplates(rawTemplates);
-    }
-
-    private void registerItemPredicates() {
-/*        ItemPredicate.register(
-                AnyPredicate.ID,
-                jsonObject -> AnyPredicate.CODEC.parse(JsonOps.INSTANCE, jsonObject)
-                        .getOrThrow(false, LOGGER::error)
-        );
-        ItemPredicate.register(
-                NotPredicate.ID,
-                jsonObject -> NotPredicate.CODEC.parse(JsonOps.INSTANCE, jsonObject)
-                        .getOrThrow(false, LOGGER::error)
-        );
-        ItemPredicate.register(
-                ArmorItemPredicate.ID,
-                jsonObject -> ArmorItemPredicate.CODEC.parse(JsonOps.INSTANCE, jsonObject)
-                        .getOrThrow(false, LOGGER::error)
-        );
-        ItemPredicate.register(
-                BlockItemPredicate.ID,
-                jsonObject -> BlockItemPredicate.CODEC.parse(JsonOps.INSTANCE, jsonObject)
-                        .getOrThrow(false, LOGGER::error)
-        );*/
     }
 }

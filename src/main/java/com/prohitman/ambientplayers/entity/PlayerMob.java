@@ -29,8 +29,6 @@ import net.minecraft.world.entity.ai.behavior.EntityTracker;
 import net.minecraft.world.entity.ai.behavior.PositionTracker;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.monster.CrossbowAttackMob;
-import net.minecraft.world.entity.monster.Pillager;
-import net.minecraft.world.entity.monster.Skeleton;
 import net.minecraft.world.entity.projectile.Arrow;
 import net.minecraft.world.entity.schedule.Activity;
 import net.minecraft.world.item.FireworkRocketItem;
@@ -198,8 +196,6 @@ public abstract class PlayerMob extends PathfinderMob implements SmartBrainOwner
         ItemStack ammo = getOffhandItem().is(ItemTags.ARROWS) || (pWeaponStack.is(Tags.Items.TOOLS_CROSSBOW) && getOffhandItem().getItem() instanceof FireworkRocketItem) ? getOffhandItem().copy() : new ItemStack(Items.ARROW);
         return CommonHooks.getProjectile(this, pWeaponStack, ammo);
     }
-
-
 
  /*   @Override
     public void shootCrossbowProjectile(LivingEntity pTarget, ItemStack pCrossbowStack, Projectile pProjectile, float pProjectileAngle) {
