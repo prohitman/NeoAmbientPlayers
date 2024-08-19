@@ -9,14 +9,18 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.Brain;
+import net.minecraft.world.entity.ai.behavior.BehaviorUtils;
 import net.minecraft.world.entity.ai.behavior.EntityTracker;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.memory.MemoryStatus;
 import net.minecraft.world.entity.ai.navigation.GroundPathNavigation;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.monster.piglin.Piglin;
+import net.minecraft.world.entity.monster.piglin.PiglinAi;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.schedule.Activity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.phys.Vec3;
@@ -28,8 +32,7 @@ import net.tslat.smartbrainlib.api.core.sensor.vanilla.NearestItemSensor;
 import net.tslat.smartbrainlib.util.BrainUtils;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Consumer;
 
 public class BuilderMob extends PlayerMob {
@@ -58,7 +61,37 @@ public class BuilderMob extends PlayerMob {
 
     @Override
     public boolean wantsToPickUp(ItemStack pStack) {
-        return pStack.is(ModItemTags.BUILDER_TRADES);
+        return pStack.is(ModItemTags.BUILDER_TRADES) && this.getOffhandItem().isEmpty();
+    }
+
+    @Override
+    protected void pickUpItem(ItemEntity itemEntity) {
+        this.onItemPickup(itemEntity);
+        pickUpItem(this, itemEntity);
+    }
+
+    protected static void pickUpItem(BuilderMob piglin, ItemEntity itemEntity) {
+        ItemStack itemstack;
+
+        piglin.take(itemEntity, 1);
+        itemstack = removeOneItemFromItemEntity(itemEntity);
+
+        boolean flag = !piglin.equipItemIfPossible(itemstack).equals(ItemStack.EMPTY);
+        if (!flag) {
+            piglin.setItemSlot(EquipmentSlot.OFFHAND, itemstack);
+        }
+    }
+
+    private static ItemStack removeOneItemFromItemEntity(ItemEntity itemEntity) {
+        ItemStack itemstack = itemEntity.getItem();
+        ItemStack itemstack1 = itemstack.split(1);
+        if (itemstack.isEmpty()) {
+            itemEntity.discard();
+        } else {
+            itemEntity.setItem(itemstack);
+        }
+
+        return itemstack1;
     }
 
     @Override

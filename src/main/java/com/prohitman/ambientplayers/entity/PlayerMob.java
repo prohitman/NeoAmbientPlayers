@@ -102,8 +102,8 @@ public abstract class PlayerMob extends PathfinderMob implements SmartBrainOwner
                 .add(Attributes.MOVEMENT_SPEED, 0.2F)
                 .add(Attributes.ATTACK_SPEED)
                 .add(Attributes.ATTACK_KNOCKBACK)
-                .add(Attributes.BLOCK_INTERACTION_RANGE)//may break
-                .add(Attributes.ENTITY_INTERACTION_RANGE);//may break
+                .add(Attributes.BLOCK_INTERACTION_RANGE)
+                .add(Attributes.ENTITY_INTERACTION_RANGE);
     }
 
     @Override
